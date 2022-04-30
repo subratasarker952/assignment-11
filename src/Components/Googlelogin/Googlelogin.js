@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Spinner } from 'react-bootstrap';
 import auth from '../../firebase.init'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const Googlelogin = () => {
@@ -17,8 +17,11 @@ const Googlelogin = () => {
         <span className="visually-hidden">Loading...</span>
       </Spinner>;
     }
+    const location = useLocation();
+
+    let from= location.state?.from?.pathname || "/"
     if (user) {
-        navigate('/')
+        navigate(from, {replace:true})
     }
 
     return (

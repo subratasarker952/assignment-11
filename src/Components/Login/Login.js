@@ -1,40 +1,50 @@
 import React, { useState } from 'react';
 import { Button, Form, Spinner } from 'react-bootstrap';
 import auth from '../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Googlelogin from '../Googlelogin/Googlelogin';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 const Login = () => {
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [
-      signInWithEmailAndPassword,
-      user,
-      loading,
-      error,
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
     ] = useSignInWithEmailAndPassword(auth);
-  
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+        auth
+    );
+    const handlereset=()=>{
+        sendPasswordResetEmail(email);
+        toast("Reset Password email is sending")
+    }
+    const location = useLocation();
+
+    let from= location.state?.from?.pathname || "/"
+
     let errorelement;
     if (error) {
         errorelement = error.message;
     }
     if (loading) {
         <Spinner
-         animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>;
+            animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>;
     }
-    if (user) {
-        navigate('/')
+    if(user){
+        navigate(from, {replace:true})
     }
+
     const handlelogin = event => {
         event.preventDefault()
         signInWithEmailAndPassword(email, password)
-        console.log(email, password);
 
-        
+
     }
     const newRegister = () => {
         navigate('/register')
@@ -59,7 +69,8 @@ const Login = () => {
                 </Form>
             </div>
             <div>
-                <p>New User? <Button onClick={newRegister}>Register Now</Button></p>
+                <p>New User? <Button className='btn btn-danger'  onClick={newRegister}>Register Now</Button></p>
+                <p>Forget Password? <Button className='btn btn-danger' onClick={handlereset}> Reset Password</Button></p>
             </div>
             <p>{errorelement}</p>
             <div>
