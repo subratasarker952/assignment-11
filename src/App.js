@@ -12,10 +12,14 @@ import Myitem from './Components/Myitems/Myitem';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Private from './Components/Private/Private';
+import Products from './Components/Products/Products';
+import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
+
 
 
 
 function App() {
+ 
   return (
     <div className="App">
       <Header></Header>
@@ -23,7 +27,10 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/inventory/' element={<UpdateProduct></UpdateProduct>}></Route>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/inventory' element={
+          <Private> <Products></Products> </Private>}></Route>
         <Route path='/manageitems' element={
           <Private> <Manageitem></Manageitem></Private>}></Route>
         <Route path='/additem' element={

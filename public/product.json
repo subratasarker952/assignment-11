@@ -1,0 +1,85 @@
+[
+    {
+      "_id": "626eb9d79de48678fefe9efc",
+      "name": "Symphony R40",
+      "description": "Smart Phone",
+      "price": 6000,
+      "quantity": 100,
+      "supplierName": "Subrata sarker"
+    },
+    {
+      "_id": "626eb9d729e3ac1881d38540",
+      "name": "Symphony v52",
+      "description": "Smart Phone",
+      "price": 8000,
+      "quantity": 100,
+      "supplierName": "Subrata sarker"
+    },
+    {
+      "_id": "626eb9d708c1be9ca91a2536",
+      "name": "Symphony E70",
+      "description": "Smart Phone",
+      "price": 9000,
+      "quantity": 100,
+      "supplierName": "Subrata sarker"
+    },
+    {
+      "_id": "626eb9d7ec25ad97ae5cc0e3",
+      "name": "Symphony A2",
+      "description": "Smart Phone",
+      "price": 16000,
+      "quantity": 50,
+      "supplierName": "Subrata sarker"
+    },
+    {
+      "_id": "626eb9d77158679657d5a1ce",
+      "name": "Oppo A4",
+      "description": "Smart Phone",
+      "price": 13000,
+      "quantity": 60,
+      "supplierName": "Subrata sarker"
+    },
+    {
+      "_id": "626eb9d7d873700496c50bef",
+      "name": "Symphony W20",
+      "description": "Smart Phone",
+      "price": 5000,
+      "quantity": 40,
+      "supplierName": "Subrata sarker"
+    },
+    {
+      "_id": "626eb9d7e61f9e0ebf4d6fd6",
+      "name": "Symphony R10",
+      "description": "Smart Phone",
+      "price": 3000,
+      "quantity": 40,
+      "supplierName": "Subrata sarker"
+    }
+    ,
+    {
+      "_id": "626eb9d7387719cc1a430ee8",
+      "name": "Samsung A20",
+      "description": "Smart Phone",
+      "price": 26000,
+      "quantity": 30,
+      "supplierName": "Subrata sarker"
+    }
+    ,
+    {
+      "_id": "626eb9d7387719cc1a431ee8",
+      "name": "Symphony h20",
+      "description": "Smart Phone",
+      "price": 12000,
+      "quantity": 50,
+      "supplierName": "Subrata sarker"
+    }
+    ,
+    {
+      "_id": "626eb9d7387719cc1a432ee8",
+      "name": "Symphony T20",
+      "description": "Smart Phone",
+      "price": 11000,
+      "quantity": 45,
+      "supplierName": "Subrata sarker"
+    }
+  ]

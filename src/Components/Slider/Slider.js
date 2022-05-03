@@ -3,7 +3,6 @@ import { Carousel } from 'react-bootstrap';
 import a from '../../Images/a.jpg'
 import b from '../../Images/b.jpg'
 import c from '../../Images/c.jpg'
-import d from '../../Images/d.jpg'
 
 
 const Slider = () => {
@@ -29,13 +28,6 @@ const Slider = () => {
                         className="d-block w-100"
                         src={c}
                         alt="Third slide"
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={d}
-                        alt="Fourth slide"
                     />
                 </Carousel.Item>
             </Carousel>
