@@ -1,12 +1,11 @@
 import React from 'react';
-import { Button, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import UseProducts from '../../Hooks/UseProducts';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
+
 
 const UpdateProduct = () => {
-    const [products, setProducts] = UseProducts();
-
-    const { id } = useParams();
+    // const { id } = useParams();
     return (
         <div className='container mt-5'>
             <div className='w-50 mx-auto'>
@@ -15,7 +14,9 @@ const UpdateProduct = () => {
                 <br/>
                 <Button className='w-25 m-1'>Delivery</Button>
                 <Button className='w-25 m-1'>Add Quantity</Button>
-
+                <br/>
+                <br/>
+                <Link to={'/inventory/additem'}> <Button className='w-50'> Add Product</Button> </Link>
             </div>
 
         </div>

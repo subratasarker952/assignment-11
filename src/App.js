@@ -33,7 +33,7 @@ function App() {
           <Private> <Products></Products> </Private>}></Route>
         <Route path='/manageitems' element={
           <Private> <Manageitem></Manageitem></Private>}></Route>
-        <Route path='/additem' element={
+        <Route path='/inventory/additem' element={
           <Private> <Additem></Additem></Private>}></Route>
         <Route path='/myitems' element={
           <Private> <Myitem></Myitem></Private>}></Route>
