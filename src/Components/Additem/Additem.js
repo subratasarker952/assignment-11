@@ -16,7 +16,7 @@ const Additem = () => {
         const supplierName = event.target.supplierName.value;
         const device = { useremail, picture, name, description, price, quantity, supplierName }
 
-        fetch('http://localhost:5000/inventory', {
+        fetch('https://protected-garden-39140.herokuapp.com/inventory', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -16,7 +16,7 @@ const Product = ({ product }) => {
         if (user) {
             const proced = window.confirm('Are you sure to Delete this item??')
             if (proced) {
-                const url = `http://localhost:5000/inventory/${id}`;
+                const url = `https://protected-garden-39140.herokuapp.com/inventory/${id}`;
                 fetch(url, {
                     method: 'DELETE',
                 })
@@ -44,7 +44,7 @@ const Product = ({ product }) => {
 
 export default Product;
 
-// const url=`http://localhost:5000/inventory/${id}`
+// const url=`https://protected-garden-39140.herokuapp.com/inventory/${id}`
 // fetch(url)
 // .then(res=> res.json())
 // .then(data => console.log(data))

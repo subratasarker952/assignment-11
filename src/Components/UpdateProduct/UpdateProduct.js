@@ -9,7 +9,7 @@ const UpdateProduct = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://protected-garden-39140.herokuapp.com/inventory/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
@@ -21,7 +21,7 @@ const UpdateProduct = () => {
         const quantity = product.quantity + addQuantity;
         const updateQuantityobj = {quantity}
         
-        fetch(`http://localhost:5000/inventory/${id}`, {
+        fetch(`https://protected-garden-39140.herokuapp.com/inventory/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ const UpdateProduct = () => {
         const quantity = product.quantity - delivaryquantity;
         const updateQuantityobj = {quantity}
         
-        fetch(`http://localhost:5000/inventory/${id}`, {
+        fetch(`https://protected-garden-39140.herokuapp.com/inventory/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

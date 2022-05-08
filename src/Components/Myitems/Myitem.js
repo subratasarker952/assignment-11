@@ -10,7 +10,7 @@ const Myitem = () => {
     const userEmail = user.email;
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://protected-garden-39140.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [products])
@@ -18,7 +18,7 @@ const Myitem = () => {
 
     return (
         <div >
-            <h2 className='mt-5'> User added product</h2>
+        <h2 className='mt-5'> User added product = {userProducts.length}</h2>
             <div className='productContainer'>
                 {
                     userProducts.map(product => <Product key={product._id} product={product}></Product>)
