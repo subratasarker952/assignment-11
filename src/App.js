@@ -14,11 +14,20 @@ import 'react-toastify/dist/ReactToastify.css';
 import Private from './Components/Private/Private';
 import Products from './Components/Products/Products';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
+import Loading from './Components/Loading/Loading';
 
 
 
 
 function App() {
+  const [user, loading, error]=useAuthState(auth)
+
+if(loading){
+  return <Loading></Loading>
+}
+
  
   return (
     <div className="App">
@@ -27,10 +36,12 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/inventory/:id' element={<UpdateProduct></UpdateProduct>}></Route>
+        <Route path='/update/:id' element={
+        <Private><UpdateProduct></UpdateProduct></Private>
+        }></Route>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/inventory' element={
-          <Private> <Products></Products> </Private>}></Route>
+           <Products></Products>}></Route>
         <Route path='/manageitems' element={
           <Private> <Manageitem></Manageitem></Private>}></Route>
         <Route path='/inventory/additem' element={

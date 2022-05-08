@@ -33,7 +33,7 @@ const Header = () => {
                         <Nav className="ms-auto">
                             {
                                 user ? <Nav>
-                                    <Nav.Link className='text-light' as={Link} to="/manageitems">Manage-item</Nav.Link>
+                                    <Nav.Link className='text-light' as={Link} to="/inventory">Manage-item</Nav.Link>
                                     <Nav.Link className='text-light' as={Link} to="/inventory/additem">Add-item</Nav.Link>
                                     <Nav.Link className='text-light' as={Link} to="/myitems">My-item</Nav.Link>
                                      <Button onClick={handlelogout}>Sign out</Button>

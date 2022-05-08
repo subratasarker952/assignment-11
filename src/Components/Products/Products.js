@@ -10,7 +10,7 @@ const Products = () => {
         fetch('http://localhost:5000/inventory')
         .then(res=> res.json())
         .then(data => setProducts(data))
-    },[])
+    },[products])
     return (
         <div >
             <h2 className='mt-5'>Inventory</h2>

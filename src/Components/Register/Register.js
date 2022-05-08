@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import auth from '../../firebase.init'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Button, Form, Spinner } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Button, Form} from 'react-bootstrap';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 
 
 const Register = () => {
-    const navigate= useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const location = useLocation();
     const [
         createUserWithEmailAndPassword,
         user,
@@ -20,18 +21,19 @@ const Register = () => {
         event.preventDefault();
         createUserWithEmailAndPassword(email, password)
     }
+    const navigate= useNavigate();
 
     let errorelement;
     if (error) {
         errorelement = error.message;
     }
     if (loading) {
-        <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>;
+    return <Loading></Loading>    
     }
-    if (user) {
-        navigate('/')
+
+    let from= location.state?.from?.pathname || "/"
+    if(user){
+        navigate(from, {replace:true})
     }
     const loginpage =()=>{
         navigate('/login')

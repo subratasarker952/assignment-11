@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const UpdateProduct = () => {
@@ -12,19 +13,51 @@ const UpdateProduct = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, []);
-    const { picture, name, description, price, quantity, supplierName } = product;
+    },[product]);
+
     const handleAdd = event => {
         event.preventDefault();
-        const addquantity=parseInt(event.target.addquantity.value);
+        const addQuantity=parseInt(event.target.addquantity.value);
+        const quantity = product.quantity + addQuantity;
+        const updateQuantityobj = {quantity}
+        
+        fetch(`http://localhost:5000/inventory/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateQuantityobj)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast("Quantity add successful")
+                event.target.reset();
+            })
+
+
         
     }
     
     const handleDelivary = event => {
         event.preventDefault();
         const delivaryquantity=parseInt(event.target.delivaryquantity.value);
-       
+        const quantity = product.quantity - delivaryquantity;
+        const updateQuantityobj = {quantity}
+        
+        fetch(`http://localhost:5000/inventory/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateQuantityobj)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast("Delivary successful")
+                event.target.reset();
+            })
     }
+    const { picture, name, description, price, quantity, supplierName } = product;
     return (
         <div className='container mt-5 w-lg-50' >
             <div className='border p-3 m-3 rounded'>

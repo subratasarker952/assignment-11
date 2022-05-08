@@ -5,8 +5,15 @@ const Blogs = () => {
     
  
     return (
-        <div>
-        
+        <div className='blogs container'>
+            <h3> Question:</h3>
+            <p> Answer:</p>
+
+            <h3> Question:</h3>
+            <p> Answer:</p>
+
+            <h3> Question:</h3>
+            <p> Answer:</p>        
         </div>
     );
 };

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Form, Spinner } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Googlelogin from '../Googlelogin/Googlelogin';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import Loading from '../Loading/Loading';
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
         auth
     );
     const handlereset=()=>{
@@ -30,11 +31,8 @@ const Login = () => {
     if (error) {
         errorelement = error.message;
     }
-    if (loading) {
-        <Spinner
-            animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </Spinner>;
+    if (loading || sending) {
+     return <Loading></Loading>
     }
     if(user){
         navigate(from, {replace:true})
