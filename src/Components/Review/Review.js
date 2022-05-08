@@ -9,6 +9,7 @@ const Review = () => {
         <div  >
             <Carousel style={{ height: "250px", overflow: "hidden" }}>
                 <Carousel.Item>
+                    <h1> Nice inventory management website</h1>
                 <h1 className='mb-3' > Help ful website</h1>
 
                     <img
@@ -21,6 +22,7 @@ const Review = () => {
                     <h3> Diller</h3>
                 </Carousel.Item>
                 <Carousel.Item>
+                    <h1> Nice inventory management website</h1>
                 <h1 className='mb-3'>  Support system is good</h1>
 
                     <img
@@ -33,6 +35,7 @@ const Review = () => {
                     <h3> Customar</h3>
                 </Carousel.Item>
                 <Carousel.Item>
+                    <h1> Nice inventory management website</h1>
                     <h1 className='mb-3'> Nice inventory management website</h1>
 
                     <img
